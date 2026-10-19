@@ -73,6 +73,7 @@ button{font:inherit;cursor:pointer}
 .chip b{font-weight:600}
 .chip--eye b{color:var(--sky)}
 .chip--move b{color:var(--amber)}
+.chip--rest b{color:var(--moss)}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:1px solid transparent;border-radius:10px;padding:10px 16px;font-weight:700;background:var(--moss);color:var(--moss-ink);text-decoration:none;transition:transform .12s ease,filter .12s ease}
 .btn:hover{filter:brightness(1.07)}
 .btn:active{transform:translateY(1px)}
@@ -222,6 +223,8 @@ input[type=range]{width:100%;accent-color:var(--moss)}
 .steps-list span.on{background:var(--amber-soft);color:var(--ink)}
 .toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--ink);color:var(--bg);padding:10px 16px;border-radius:10px;font-size:.9rem;z-index:60}
 
+.sources summary{cursor:pointer;font-weight:700;color:var(--ink)}
+.sources ul{margin:8px 0 12px;padding-left:1.2em;display:flex;flex-direction:column;gap:4px}
 footer.foot{max-width:1180px;margin:0 auto;padding-inline:16px;padding-block:0 40px;color:var(--ink-2);font-size:.85rem;display:flex;flex-direction:column;gap:6px}
 </style>
 </head>
@@ -232,7 +235,8 @@ footer.foot{max-width:1180px;margin:0 auto;padding-inline:16px;padding-block:0 4
     <a class="brand" href="#m1"><span class="brand__dot" aria-hidden="true"></span>Human in the Loop</a>
     <div class="coach" aria-live="polite">
       <span class="chip chip--eye" title="Next eye break">eyes <b id="eyeLeft">20:00</b></span>
-      <span class="chip chip--move" title="Next movement break">move <b id="moveLeft">60:00</b></span>
+      <span class="chip chip--move" title="Next movement break">move <b id="moveLeft">30:00</b></span>
+      <span class="chip chip--rest" title="Next 15-minute screen break">rest <b id="restLeft">2:00:00</b></span>
       <button class="btn btn--small" id="coachToggle" type="button">Start break coach</button>
     </div>
   </div>
@@ -275,7 +279,7 @@ footer.foot{max-width:1180px;margin:0 auto;padding-inline:16px;padding-block:0 4
     </div>
 
     <div class="prose">
-      <p>Most of us now spend 7 to 10 waking hours a day looking at a screen. AI tools add a new kind of load on top of that: they are fast, always available, and they invite us to hand over not just chores but our thinking. That can be a gift or a slow loss, depending on how we use them.</p>
+      <p>The average internet user now spends more than six hours a day online, and many office workers spend most of their working day in front of a screen. AI tools add a new kind of load on top of that: they are fast, always available, and they invite us to hand over not just chores but our thinking. That can be a gift or a slow loss, depending on how we use them.</p>
       <p>This course looks at three layers of health, because each one is affected differently:</p>
     </div>
     <div class="grid3">
@@ -310,27 +314,31 @@ footer.foot{max-width:1180px;margin:0 auto;padding-inline:16px;padding-block:0 4
       <p>"Digital eye strain" (also called computer vision syndrome) shows up as tired, dry, burning or blurry eyes, headaches and a stiff neck. Three things cause most of it:</p>
       <ol>
         <li><strong>Holding close focus.</strong> To see a screen at 50 to 70 cm, a small ring muscle inside the eye (the ciliary muscle) stays contracted. Hours of that is like holding a light weight at arm's length all day.</li>
-        <li><strong>Blinking less.</strong> People blink roughly half as often while concentrating on a screen, and many blinks are incomplete. The tear film dries out.</li>
+        <li><strong>Blinking less.</strong> Studies have found that people blink far less often while looking at a screen, in some cases less than half as often, and many blinks are incomplete. The tear film dries out.</li>
         <li><strong>A poor setup.</strong> Glare, a screen brighter or darker than the room, text that is too small, and a monitor set too high all add strain.</li>
       </ol>
     </div>
 
     <div class="callout callout--myth">
       <span class="label">Blue light: what the evidence says</span>
-      <p><strong>Screens are not damaging your retina.</strong> A phone or monitor gives off a small fraction of the blue light you get from being outdoors on a cloudy day. A 2023 Cochrane review found that blue-light-filtering glasses probably do not reduce eye strain from computer use.</p>
-      <p><strong>Where blue light does matter is sleep.</strong> Bright, blue-rich light in the evening tells your brain it is still daytime. It suppresses melatonin and can push back your sleep. That is a real effect on your body, and it builds up night after night.</p>
+      <p><strong>There is no scientific evidence that blue light from screens damages the eye.</strong> That is the position of the American Academy of Ophthalmology. Screens give off much less blue light than the sun. The tired, dry eyes people blame on blue light come from close focus and blinking less.</p>
+      <p><strong>Blue-light glasses are not needed for eye strain.</strong> A 2023 Cochrane review found that blue-light-filtering glasses may make little or no difference to eye strain from screen use, and found no good evidence of other benefits. The American Academy of Ophthalmology does not recommend them.</p>
+      <p><strong>Where light from screens does matter is sleep.</strong> Light in the evening, especially blue-rich light, suppresses the sleep hormone melatonin and can shift your body clock later. In a Harvard study published in 2015, people who read on a light-emitting e-reader before bed took longer to fall asleep and were less alert the next morning than when they read a printed book.</p>
     </div>
 
     <div class="grid2">
-      <div class="card"><h3>Evening light habits</h3><p>Turn on Night Shift, Night Light or a warm display filter from sunset. Dim screens and room lights after dark. Aim for 60 minutes screen-free before bed, and keep the phone charging outside the bedroom.</p></div>
-      <div class="card"><h3>Morning light habits</h3><p>Get 10 to 20 minutes of outdoor daylight soon after waking, even when it is cloudy. Morning light sets your body clock, so you feel sleepy at the right time later. For children, time outdoors is also linked to lower rates of short-sightedness.</p></div>
+      <div class="card"><h3>Evening light habits</h3><p>Dim screens and room lights after dark, and stop using screens 30 to 60 minutes before bed, as sleep experts commonly advise. Warm modes such as Night Shift reduce blue light, but on their own they are not enough: a 2021 study found Night Shift alone did not improve sleep. Less screen time before bed matters more.</p></div>
+      <div class="card"><h3>Morning light habits</h3><p>Get outdoor daylight in the morning, even on a cloudy day. Daylight is the main signal that sets your body clock. For children, more time outdoors lowers the risk of becoming short-sighted, which large trials have shown.</p></div>
     </div>
 
     <div class="prose">
-      <h3>The 20-20-20 rule, and why green and far away help</h3>
-      <p><strong>Every 20 minutes, look at something at least 20 feet (6 metres) away for at least 20 seconds.</strong> Distance lets the focusing muscle relax fully. Blink slowly a few times while you do it to re-wet your eyes.</p>
-      <p>If you can, look out of a window at trees, a garden, the sky or a far horizon. Green, natural scenes do more than rest the eyes. In a 2015 study from the University of Melbourne, people who glanced at a green roof for 40 seconds made fewer errors on a following attention task than people who looked at a concrete roof. Researchers link this to "attention restoration": nature holds our attention softly, so the effortful kind can recover.</p>
-      <p>Twenty minutes can feel frequent. Treat the 20-20-20 break as a tiny habit that costs 20 seconds. Then, <strong>every 1 to 2 hours, take a longer "green break" of 5 to 10 minutes</strong>, ideally outside or at a window, with no screen at all.</p>
+      <h3>The guideline: 20-20-20, plus a 15-minute rest every 2 hours</h3>
+      <p>The American Optometric Association recommends two kinds of eye break:</p>
+      <ul>
+        <li><strong>The 20-20-20 rule:</strong> every 20 minutes, look at something about 20 feet (6 metres) away for 20 seconds. At that distance, the focusing muscle in your eye relaxes. Blink a few times while you look.</li>
+        <li><strong>A longer rest:</strong> after 2 hours of continuous screen use, rest your eyes for 15 minutes away from the screen.</li>
+      </ul>
+      <p>For both breaks, try to look out of a window or step outside, at trees, a garden, the sky or a far horizon. Natural scenes may help your mind as well as your eyes. A small 2015 study from the University of Melbourne found that people who looked at a green roof for 40 seconds then made fewer errors on an attention task than people who looked at a concrete roof. Researchers explain this with "attention restoration theory": natural scenes hold attention gently, which gives focused attention time to recover.</p>
     </div>
 
     <div class="exercise">
@@ -347,7 +355,7 @@ footer.foot{max-width:1180px;margin:0 auto;padding-inline:16px;padding-block:0 4
         <li><strong>Glare:</strong> put the screen side-on to windows, not facing them or with them behind it.</li>
         <li><strong>Text size:</strong> make it larger than you think you need. Squinting is a sign to zoom in.</li>
         <li><strong>Dry eyes:</strong> blink on purpose, keep air vents away from your face, and ask a pharmacist about preservative-free lubricating drops.</li>
-        <li><strong>Checkups:</strong> an uncorrected prescription causes strain that no habit will fix. Have an eye exam every one to two years.</li>
+        <li><strong>Checkups:</strong> an uncorrected prescription causes strain that no habit will fix. The American Optometric Association recommends a full eye exam at least every two years for adults, and every year from age 65.</li>
       </ul>
     </div>
 
@@ -364,8 +372,8 @@ footer.foot{max-width:1180px;margin:0 auto;padding-inline:16px;padding-block:0 4
     </div>
 
     <div class="prose">
-      <p>The problem with long screen sessions is less about "bad posture" and more about <strong>staying still for too long</strong>. Muscles and joints like variety. Any position gets uncomfortable if you hold it for hours. The best posture is your next one.</p>
-      <p>A micro-movement break takes one to three minutes. You do it every 30 to 60 minutes, and it needs no equipment or change of clothes. Short, frequent breaks help circulation, blood sugar and stiffness more than one long workout at the end of a day spent sitting.</p>
+      <p>Research has not found one "correct" sitting posture that prevents pain. A bigger problem with long screen sessions is <strong>staying still for too long</strong>. Any position gets uncomfortable if you hold it for hours, so changing position often helps. Physiotherapists sum this up as "your best posture is your next one."</p>
+      <p>The guideline: <strong>get up and move for a few minutes about every 30 minutes</strong>. In a 2023 Columbia University study, a 5-minute walk every 30 minutes lowered blood sugar spikes after meals and lowered blood pressure, compared with sitting all day. Earlier studies found similar effects from 2-minute bouts of light walking. If every 30 minutes isn't practical, move at least once an hour.</p>
     </div>
 
     <div class="grid2" id="moveCards"></div>
@@ -381,7 +389,7 @@ footer.foot{max-width:1180px;margin:0 auto;padding-inline:16px;padding-block:0 4
         <li>Stand up while the AI is generating a long answer.</li>
         <li>Take phone calls and voice notes standing or walking.</li>
         <li>Keep your water glass small, so refilling it becomes a regular walk.</li>
-        <li>Alternate sitting and standing if you have an adjustable desk. Standing all day is not the goal either.</li>
+        <li>Alternate sitting and standing if you have an adjustable desk. Standing still for long periods has its own problems, so the goal is variety.</li>
       </ul>
     </div>
 
@@ -398,13 +406,13 @@ footer.foot{max-width:1180px;margin:0 auto;padding-inline:16px;padding-block:0 4
     </div>
 
     <div class="prose">
-      <p>Many people notice that a long session with an AI assistant leaves them more drained than the same hours of ordinary work. It can feel like you did very little and yet you are exhausted. There are good reasons for this.</p>
+      <p>Many people say that a long session with an AI assistant leaves them drained, even when it feels like they did very little. Research on AI and fatigue is still new, but these well-known features of the work explain much of it.</p>
     </div>
     <div class="grid2">
       <div class="card"><h3>Constant evaluation</h3><p>Every answer has to be read, judged and checked. You become a full-time reviewer, and reviewing is effortful work.</p></div>
       <div class="card"><h3>No natural pauses</h3><p>Answers arrive in seconds, so the small rests that slower work gives you (waiting, walking, looking things up) disappear.</p></div>
-      <div class="card"><h3>Too many options</h3><p>AI can generate ten versions of anything. Choosing between endless options causes decision fatigue.</p></div>
-      <div class="card"><h3>Context switching</h3><p>Jumping between chats, tabs and tasks has a real cost. Each switch leaves part of your attention behind.</p></div>
+      <div class="card"><h3>Too many options</h3><p>AI can generate ten versions of anything. Comparing and choosing between many options takes real mental effort.</p></div>
+      <div class="card"><h3>Context switching</h3><p>Jumping between chats, tabs and tasks has a cost. Research shows that after a switch, part of your attention stays on the previous task, which researchers call "attention residue."</p></div>
     </div>
 
     <div class="callout callout--sky">
@@ -422,22 +430,19 @@ footer.foot{max-width:1180px;margin:0 auto;padding-inline:16px;padding-block:0 4
       <h3>A rhythm that works</h3>
       <ol>
         <li><strong>Start with your own head.</strong> Spend 5 minutes with pen and paper on the goal and your first ideas before opening any AI tool.</li>
-        <li><strong>Work in time boxes of 25 to 50 minutes.</strong> Decide what you want out of each block before it starts.</li>
-        <li><strong>Take a 20-second eye break every 20 minutes</strong> and a <strong>2 to 5 minute movement break</strong> at the end of each block.</li>
-        <li><strong>Every 90 minutes or so, step away for 10 to 20 minutes.</strong> Go outside, eat, talk to someone, or sit quietly. Scrolling a phone is not a break for the mind or the eyes.</li>
+        <li><strong>Work in focused blocks of about 30 minutes.</strong> Decide what you want out of each block before it starts.</li>
+        <li><strong>Every 20 minutes, take a 20-second eye break,</strong> and <strong>every 30 minutes, move for a few minutes.</strong></li>
+        <li><strong>After 2 hours of screen work, step away for at least 15 minutes.</strong> Go outside, eat, talk to someone, or sit quietly. Don't spend it on your phone: your eyes keep working at close focus, and a study found that phone breaks left people less refreshed than other kinds of break.</li>
         <li><strong>End each session with a recap.</strong> Write three lines: what you did, what you decided, and what is next. Then ask the AI to quiz you on it (module 6).</li>
         <li><strong>Set a daily limit.</strong> Decide when intensive AI work ends for the day, and protect some screen-free hours.</li>
       </ol>
     </div>
 
     <div class="exercise">
-      <header><p class="eyebrow">Tool · Break coach</p><h3>Set your reminders</h3><p class="src">The break coach in the top bar reminds you while this page is open in a tab. Choose intervals that fit your work, then press Start. It plays a soft chime and opens a guided break.</p></header>
+      <header><p class="eyebrow">Tool · Break coach</p><h3>Set your reminders</h3><p class="src">The break coach in the top bar follows the guidelines from this course while this page is open in a tab: a 20-second eye break every 20 minutes, a movement break every 30 minutes, and a 15-minute screen break every 2 hours. Press Start and it plays a soft chime and opens a guided break when each one is due.</p></header>
       <div class="settings">
-        <label for="eyeInt">Eye break every
-          <select id="eyeInt"><option value="20">20 minutes</option><option value="30">30 minutes</option><option value="45">45 minutes</option></select>
-        </label>
         <label for="moveInt">Movement break every
-          <select id="moveInt"><option value="30">30 minutes</option><option value="45">45 minutes</option><option value="60">60 minutes</option><option value="90">90 minutes</option></select>
+          <select id="moveInt"><option value="30">30 minutes (recommended)</option><option value="60">60 minutes (minimum)</option></select>
         </label>
         <label for="chime">Sound
           <select id="chime"><option value="on">Soft chime</option><option value="off">Silent</option></select>
@@ -460,7 +465,7 @@ footer.foot{max-width:1180px;margin:0 auto;padding-inline:16px;padding-block:0 4
 
     <div class="prose">
       <p>Skills you stop using get weaker. Researchers call handing mental work to a tool <strong>cognitive offloading</strong>. It is often useful: we offload phone numbers to our contacts list and arithmetic to calculators. The risk is offloading the capacities that make us who we are.</p>
-      <p>Early research points the same way. A 2025 survey of knowledge workers by Microsoft Research and Carnegie Mellon found that the more people trusted AI, the less critical thinking they reported doing. A 2025 MIT Media Lab study found that people who wrote essays with ChatGPT showed lower brain engagement and remembered less of what "they" had written. These studies are small and early, but the direction is consistent with what we know about learning: <strong>effort is how the brain builds skill</strong>.</p>
+      <p>Early research points the same way. In a 2025 survey of 319 knowledge workers by Microsoft Research and Carnegie Mellon University, people who were more confident in AI reported doing less critical thinking. In a 2025 MIT Media Lab study of 54 people, those who wrote essays with ChatGPT showed weaker brain connectivity on EEG, and most could not correctly quote from an essay they had just written. That study is small and had not been peer reviewed when it was released, so treat it as an early warning, not a final answer. It fits a well-established finding from learning research: <strong>skills are built through effortful practice</strong>.</p>
     </div>
 
     <div class="callout callout--key">
@@ -524,7 +529,7 @@ footer.foot{max-width:1180px;margin:0 auto;padding-inline:16px;padding-block:0 4
 
     <div class="prose">
       <p>The same tool that can make you mentally lazy can make you sharper. The difference is whether it does your thinking or <strong>makes you think</strong>.</p>
-      <p>One of the most reliable findings in learning science is the <strong>testing effect</strong>: pulling information out of your memory strengthens it far more than re-reading it. In a well-known 2006 study by Roediger and Karpicke, students who practised recalling a text remembered much more a week later than students who re-read it several times.</p>
+      <p>One of the most reliable findings in learning science is the <strong>testing effect</strong>: pulling information out of your memory strengthens it far more than re-reading it. In a well-known 2006 study by Roediger and Karpicke, students who practised recalling a text remembered much more of it a week later than students who spent the same time re-reading it.</p>
       <p>So after you learn or create something with AI, turn the tables: have it question you. Answer before you look anything up. Being a little wrong is part of how it works.</p>
     </div>
 
@@ -558,7 +563,7 @@ footer.foot{max-width:1180px;margin:0 auto;padding-inline:16px;padding-block:0 4
 
     <div class="grid2">
       <div class="card"><h3>Open with intention</h3><p>Before you open an app or a chat, pause for one breath and name why you are opening it. If you can't name a reason, you may not need to open it.</p></div>
-      <div class="card"><h3>Protect the edges of the day</h3><p>Keep the first 30 to 60 minutes after waking and the last hour before sleep screen-free. Use them for light, movement, prayer, reflection, journaling or people.</p></div>
+      <div class="card"><h3>Protect the edges of the day</h3><p>Keep the first 30 to 60 minutes after waking and the last 30 to 60 minutes before sleep screen-free. Use them for light, movement, prayer, reflection, journaling or people.</p></div>
       <div class="card"><h3>Keep relationships human</h3><p>Don't let AI write your words of love, grief, apology or gratitude. They matter because they cost you something and come from you.</p></div>
       <div class="card"><h3>Make things by hand</h3><p>Write, draw, cook, garden or play music without a screen. Creating with your hands grounds you in your body and in the present.</p></div>
       <div class="card"><h3>Keep a weekly unplugged block</h3><p>Choose a few hours or a whole day each week with no AI and minimal screens. Many traditions keep a sabbath. The idea works for anyone.</p></div>
@@ -617,7 +622,30 @@ footer.foot{max-width:1180px;margin:0 auto;padding-inline:16px;padding-block:0 4
 </div>
 
 <footer class="foot">
-  <p>Human in the Loop is an educational course and does not replace advice from a doctor, optometrist, physiotherapist or mental health professional.</p>
+  <details class="sources">
+    <summary>Sources</summary>
+    <ul>
+      <li>American Optometric Association. Computer vision syndrome: the 20-20-20 rule, a 15-minute rest after 2 hours of continuous computer use, screen distance of 20 to 28 inches, and recommended eye exam frequency.</li>
+      <li>American Academy of Ophthalmology. Guidance on blue light from digital devices and blue-light-blocking glasses.</li>
+      <li>Singh S. et al. (2023). Blue-light filtering spectacles. Cochrane Database of Systematic Reviews.</li>
+      <li>Chang A.M., Aeschbach D., Duffy J.F., Czeisler C.A. (2015). Evening use of light-emitting eReaders negatively affects sleep, circadian timing, and next-morning alertness. PNAS (online December 2014).</li>
+      <li>Duraccio K.M. et al. (2021). Does iPhone Night Shift mitigate negative effects of smartphone use on sleep outcomes in emerging adults? Sleep Health.</li>
+      <li>Tsubota K., Nakamori K. (1993). Dry eyes and video display terminals. New England Journal of Medicine.</li>
+      <li>He M. et al. (2015). Effect of time spent outdoors at school on the development of myopia among children in China. JAMA.</li>
+      <li>Lee K.E. et al. (2015). 40-second green roof views sustain attention: the role of micro-breaks within attention restoration theory. Journal of Environmental Psychology.</li>
+      <li>Diaz K.M. et al. (2023). Breaking up prolonged sitting to improve cardiometabolic risk: dose-response analysis of a randomized crossover trial. Medicine &amp; Science in Sports &amp; Exercise.</li>
+      <li>Dunstan D.W. et al. (2012). Breaking up prolonged sitting reduces postprandial glucose and insulin responses. Diabetes Care.</li>
+      <li>OSHA. Computer workstations eTool: monitor placement.</li>
+      <li>Leroy S. (2009). Why is it so hard to do my work? The challenge of attention residue when switching between work tasks. Organizational Behavior and Human Decision Processes.</li>
+      <li>Kang S., Kurtzberg T.R. (2019). Reach for your cell phone at your own risk: the cognitive costs of media choice for breaks. Journal of Behavioral Addictions.</li>
+      <li>Lee H.P. et al. (2025). The impact of generative AI on critical thinking: self-reported reductions in cognitive effort and confidence effects from a survey of knowledge workers. CHI 2025.</li>
+      <li>Kosmyna N. et al. (2025). Your brain on ChatGPT: accumulation of cognitive debt when using an AI assistant for essay writing task. MIT Media Lab, preprint.</li>
+      <li>Roediger H.L., Karpicke J.D. (2006). Test-enhanced learning: taking memory tests improves long-term retention. Psychological Science.</li>
+      <li>Kaplan S. (1995). The restorative benefits of nature: toward an integrative framework. Journal of Environmental Psychology.</li>
+      <li>DataReportal. Digital 2025 Global Overview Report: average daily time spent online.</li>
+    </ul>
+  </details>
+  <p>Human in the Loop is an educational course based on the sources above. It does not replace advice from a doctor, optometrist, physiotherapist or mental health professional.</p>
   <p>The body text is set in Atkinson Hyperlegible, a typeface the Braille Institute designed to be easier to read for people with low vision.</p>
 </footer>
 
@@ -641,7 +669,7 @@ footer.foot{max-width:1180px;margin:0 auto;padding-inline:16px;padding-block:0 4
 (function(){
   "use strict";
   var KEY = "hitl-course-v1";
-  var state = {done:{}, quiz:{}, sort:{}, sliders:{}, habits:{}, reflect:"", eyeInt:20, moveInt:60, chime:"on"};
+  var state = {done:{}, quiz:{}, sort:{}, sliders:{}, habits:{}, reflect:"", moveInt:30, chime:"on"};
   try { var saved = JSON.parse(localStorage.getItem(KEY) || "null"); if (saved) Object.assign(state, saved); } catch(e) {}
   function save(){ try { localStorage.setItem(KEY, JSON.stringify(state)); } catch(e) {} }
   function $(s, r){ return (r||document).querySelector(s); }
@@ -743,7 +771,7 @@ footer.foot{max-width:1180px;margin:0 auto;padding-inline:16px;padding-block:0 4
     ["Seated twist","Sit tall, place one hand on the opposite knee and rotate gently from the ribs. Switch sides."],
     ["Stand and rise","Stand up, do ten slow calf raises, and reach both arms overhead. Walk a few steps if you can."],
     ["Palming","Rub your palms warm and cup them over closed eyes for a few breaths, without pressing on the eyeballs."],
-    ["Slow breathing","Breathe in for 4, hold for 4, out for 6. Longer out-breaths help calm the nervous system."]
+    ["Slow breathing","Breathe in for 4, hold for 4, out for 6. Slow breathing with a longer out-breath helps many people feel calmer."]
   ];
   var mc = $("#moveCards");
   MOVES.forEach(function(m){ mc.appendChild(el("div",{class:"card"},"<h3>"+m[0]+"</h3><p>"+m[1]+"</p>")); });
@@ -822,19 +850,20 @@ footer.foot{max-width:1180px;margin:0 auto;padding-inline:16px;padding-block:0 4
   /* ---------- quizzes ---------- */
   var QUIZZES = {
     m2: [
-      ["What does the 20-20-20 rule ask you to do?", ["Every 20 minutes, look at something 20 feet (6 m) away for 20 seconds","Take a 20-minute break every 20 hours","Keep your screen 20 cm from your eyes","Lower brightness by 20% every 20 minutes"], 0, "Distance lets the focusing muscle in your eye relax, and 20 seconds is enough for it to let go."],
-      ["What is the best-supported reason to limit blue light from screens?", ["It damages the retina","It can delay melatonin and sleep when used in the evening","It causes near-sightedness in adults","It makes screens harder to read"], 1, "Screen blue light is far weaker than daylight. Its main proven effect is on your body clock at night."],
-      ["Why is looking at something green and far away especially restful?", ["Green light is filtered out by the eye","It relaxes focus and nature helps restore attention","It improves your eyesight permanently","Green screens emit less light"], 1, "Far focus relaxes the eye. Natural scenes also support recovery of directed attention."]
+      ["What does the 20-20-20 rule ask you to do?", ["Every 20 minutes, look at something 20 feet (6 m) away for 20 seconds","Take a 20-minute break every 20 hours","Keep your screen 20 cm from your eyes","Lower brightness by 20% every 20 minutes"], 0, "This is the American Optometric Association's guideline. Looking about 6 m away lets the focusing muscle in your eye relax."],
+      ["What is the best-supported reason to limit screen light in the evening?", ["It damages the retina","It can suppress melatonin and delay sleep","It causes near-sightedness in adults","It makes screens harder to read"], 1, "There is no evidence that screen blue light damages the eye. Its proven effect is on melatonin and your body clock in the evening."],
+      ["After 2 hours of continuous screen use, what does the American Optometric Association recommend?", ["Switch to a bigger screen","Rest your eyes for 15 minutes","Put on blue-light glasses","Turn the brightness to maximum"], 1, "A 15-minute rest every 2 hours, on top of the 20-20-20 rule."],
+      ["Why is looking at something green and far away especially restful?", ["Green light is filtered out by the eye","It relaxes focus and nature helps restore attention","It improves your eyesight permanently","Green screens emit less light"], 1, "Far focus relaxes the eye, and studies suggest natural scenes help focused attention recover."]
     ],
     m3: [
-      ["What is the main physical problem with long screen sessions?", ["Using a laptop instead of a desktop","Staying in any single position for too long","Typing too fast","Sitting on a soft chair"], 1, "Your body likes variety. The best posture is your next one."],
-      ["How often is a good starting point for a micro-movement break?", ["Once a day","Every 30 to 60 minutes","Every 5 minutes","Only when something hurts"], 1, "Short, frequent breaks work better than one long session at the end of a sedentary day."],
+      ["What is the main physical problem with long screen sessions?", ["Using a laptop instead of a desktop","Staying in any single position for too long","Typing too fast","Sitting on a soft chair"], 1, "No single posture has been shown to prevent pain. Changing position often is what helps."],
+      ["How often should you get up and move?", ["Once a day","About every 30 minutes, and at least once an hour","Every 5 minutes","Only when something hurts"], 1, "Studies found that a few minutes of light movement every 30 minutes improved blood sugar and blood pressure compared with sitting all day."],
       ["Which is a good way to build movement into AI work?", ["Stand up while a long answer is generating","Eat lunch at the desk to save time","Use a larger monitor","Scroll your phone during breaks"], 0, "Waiting time is free movement time."]
     ],
     m4: [
       ["Why can long AI sessions feel so draining?", ["The screen is brighter than usual","You are constantly evaluating output, with few natural pauses","AI tools use more electricity","Typing prompts is physically tiring"], 1, "Reviewing, choosing and switching all use effortful attention, and fast replies remove the small rests."],
       ["Which of these is a sign you need a break?", ["You are accepting outputs without checking them","You finished a task","You feel curious","You made a decision"], 0, "When your judgment starts to slip, rest before you continue."],
-      ["What makes a real break for the mind?", ["Scrolling social media","Switching to a different chat","Going outside, moving or talking to someone, away from screens","Watching a short video"], 2, "A screen break has to be a break from screens."]
+      ["What makes a real break for the mind?", ["Scrolling social media","Switching to a different chat","Going outside, moving or talking to someone, away from screens","Watching a short video"], 2, "A real break gets you away from screens. Phone breaks keep your eyes at close focus and leave people less refreshed."]
     ],
     m5: [
       ["In the employee-and-manager model, who makes the final decision?", ["The AI, because it has more information","You","Whoever is faster","It depends on the AI model"], 1, "The AI can list options and trade-offs. The choice and responsibility stay with you."],
@@ -843,13 +872,13 @@ footer.foot{max-width:1180px;margin:0 auto;padding-inline:16px;padding-block:0 4
     ],
     m6: [
       ["What is the testing effect?", ["AI tests are more accurate than human tests","Recalling information from memory strengthens it more than re-reading","Testing makes people anxious","You should test AI outputs for bias"], 1, "Retrieval practice is one of the most reliable findings in learning science."],
-      ["When AI quizzes you, what should you do?", ["Look up the answer first so you get it right","Try to answer from memory before seeing the answer","Ask it to give the answers with the questions","Skip hard questions"], 1, "The effort of recalling, even when you get it wrong, is what builds memory."],
-      ["What is a good moment to ask AI to quiz you?", ["Only before an exam","At the end of an AI session and again the next day","Never, since it replaces learning","Only for coding"], 1, "End-of-session and next-day recall catch what you really kept."]
+      ["When AI quizzes you, what should you do?", ["Look up the answer first so you get it right","Try to answer from memory before seeing the answer","Ask it to give the answers with the questions","Skip hard questions"], 1, "The effort of recalling is what strengthens memory, even when you get some answers wrong."],
+      ["What is a good moment to ask AI to quiz you?", ["Only before an exam","At the end of an AI session and again the next day","Never, since it replaces learning","Only for coding"], 1, "Spacing your practice out over time helps memory more than doing it all at once."]
     ],
     m7: [
       ["What is a simple way to use technology with intention?", ["Keep notifications on so you never miss anything","Pause and name why you're opening an app before you open it","Use AI for every decision","Always have a screen in reach"], 1, "A single breath and a named reason turn a reflex into a choice."],
       ["Which task is best kept fully human?", ["Formatting a spreadsheet","Writing words of grief or love to someone close","Summarizing a report","Converting file types"], 1, "Those words matter because they come from you."],
-      ["Why protect the first and last hour of the day?", ["Screens don't work in the morning","They set your body clock, your mood and your inner tone for the day and night","Apps are slower at those times","It saves battery"], 1, "Morning light and a screen-free evening support sleep, calm and presence."]
+      ["Why protect the start and end of the day from screens?", ["Screens don't work in the morning","Morning daylight helps set your body clock, and evening screen light can delay sleep","Apps are slower at those times","It saves battery"], 1, "Morning daylight sets your body clock, and less screen light in the evening protects sleep. Quiet time at both ends of the day also leaves room for reflection."]
     ]
   };
   $$("[data-quiz]").forEach(function(q){
@@ -892,21 +921,20 @@ footer.foot{max-width:1180px;margin:0 auto;padding-inline:16px;padding-block:0 4
   var HABITS = [
     ["Eyes and light", [
       ["h20","Every 20 min: look 6 m (20 ft) away for 20 seconds, blinking slowly"],
-      ["hgreen","Every 1-2 hours: a 5-10 minute green break at a window or outside"],
-      ["hnight","Night mode on from sunset; screens dimmed after dark"],
-      ["hbed","No screens in the last hour before bed; phone charges outside the bedroom"],
-      ["hmorn","10-20 minutes of outdoor daylight soon after waking"],
+      ["hgreen","Every 2 hours: a 15-minute eye rest away from screens, ideally outside or at a window"],
+      ["hnight","Screens and room lights dimmed after dark"],
+      ["hbed","No screens in the last 30-60 minutes before bed"],
+      ["hmorn","Outdoor daylight in the morning"],
       ["hsetup","Screen at arm's length, top at eye level, text size up"]
     ]],
     ["Body", [
-      ["hmove","Every 30-60 min: a 2-minute micro-movement break"],
+      ["hmove","Every 30 min (at least hourly): get up and move for a few minutes"],
       ["hstand","Stand or stretch while AI generates long answers"],
       ["hwalk","Take calls standing or walking"]
     ]],
     ["Mind", [
       ["hpen","Start each task with 5 minutes of pen and paper before opening AI"],
-      ["hbox","Work in 25-50 minute blocks with a clear goal for each"],
-      ["h90","Every 90 minutes: a 10-20 minute break away from all screens"],
+      ["hbox","Work in focused 30-minute blocks with a clear goal for each"],
       ["hquiz","End each AI session by asking it to quiz me"],
       ["hlimit","A set end time for intensive AI work each day"]
     ]],
@@ -953,14 +981,19 @@ footer.foot{max-width:1180px;margin:0 auto;padding-inline:16px;padding-block:0 4
   renderPlan();
 
   /* ---------- break coach ---------- */
-  var running = false, nextEye = 0, nextMove = 0, audioCtx = null, inBreak = false;
-  var eyeSel = $("#eyeInt"), moveSel = $("#moveInt"), chimeSel = $("#chime");
-  eyeSel.value = String(state.eyeInt); moveSel.value = String(state.moveInt); chimeSel.value = state.chime;
-  function fmt(ms){ ms = Math.max(0, ms); var s = Math.round(ms/1000), m = Math.floor(s/60); s = s % 60; return (m<10?"0":"")+m+":"+(s<10?"0":"")+s; }
-  function resetTimers(){ var now = Date.now(); nextEye = now + state.eyeInt*60000; nextMove = now + state.moveInt*60000; }
+  // Guidelines: 20-20-20 rule and a 15-minute eye rest after 2 hours (American Optometric Association);
+  // a few minutes of movement about every 30 minutes, at least hourly.
+  var EYE_MIN = 20, REST_MIN = 120, REST_LEN = 15*60;
+  if (state.moveInt !== 30 && state.moveInt !== 60) state.moveInt = 30;
+  var running = false, nextEye = 0, nextMove = 0, nextRest = 0, audioCtx = null, inBreak = false;
+  var moveSel = $("#moveInt"), chimeSel = $("#chime");
+  moveSel.value = String(state.moveInt); chimeSel.value = state.chime;
+  function fmt(ms){ ms = Math.max(0, ms); var s = Math.round(ms/1000), h = Math.floor(s/3600), m = Math.floor(s/60) % 60; s = s % 60; return (h ? h+":" : "")+(m<10?"0":"")+m+":"+(s<10?"0":"")+s; }
+  function resetTimers(){ var now = Date.now(); nextEye = now + EYE_MIN*60000; nextMove = now + state.moveInt*60000; nextRest = now + REST_MIN*60000; }
   function paintCoach(){
     var now = Date.now();
-    $("#eyeLeft").textContent = running ? fmt(nextEye - now) : fmt(state.eyeInt*60000);
+    $("#eyeLeft").textContent = running ? fmt(nextEye - now) : fmt(EYE_MIN*60000);
+    $("#restLeft").textContent = running ? fmt(nextRest - now) : fmt(REST_MIN*60000);
     $("#moveLeft").textContent = running ? fmt(nextMove - now) : fmt(state.moveInt*60000);
     var label = running ? "Pause break coach" : "Start break coach";
     $("#coachToggle").textContent = label; $("#coachToggle2").textContent = label;
@@ -972,7 +1005,6 @@ footer.foot{max-width:1180px;margin:0 auto;padding-inline:16px;padding-block:0 4
   }
   $("#coachToggle").addEventListener("click", toggleCoach);
   $("#coachToggle2").addEventListener("click", toggleCoach);
-  eyeSel.addEventListener("change", function(){ state.eyeInt = +eyeSel.value; save(); if (running) nextEye = Date.now() + state.eyeInt*60000; paintCoach(); });
   moveSel.addEventListener("change", function(){ state.moveInt = +moveSel.value; save(); if (running) nextMove = Date.now() + state.moveInt*60000; paintCoach(); });
   chimeSel.addEventListener("change", function(){ state.chime = chimeSel.value; save(); });
 
@@ -1000,6 +1032,13 @@ footer.foot{max-width:1180px;margin:0 auto;padding-inline:16px;padding-block:0 4
       $("#bHint").textContent = "A tree, a hill, the sky. Keep your gaze soft and blink slowly a few times.";
       bSteps = null; $("#bSteps").innerHTML = ""; bTotal = 20;
       arc.style.stroke = "var(--sky)";
+    } else if (kind === "rest"){
+      $("#bKind").textContent = "Screen break · 15 minutes";
+      $("#bTitle").textContent = "Two hours on screen. Time to rest.";
+      $("#bStep").textContent = "Step away from all screens";
+      $("#bHint").textContent = "Go outside or sit by a window, walk, drink water, or talk to someone. Leave your phone behind.";
+      bSteps = null; $("#bSteps").innerHTML = ""; bTotal = REST_LEN;
+      arc.style.stroke = "var(--moss)";
     } else {
       $("#bKind").textContent = "Movement break · 2 minutes";
       $("#bTitle").textContent = "Move gently";
@@ -1014,7 +1053,7 @@ footer.foot{max-width:1180px;margin:0 auto;padding-inline:16px;padding-block:0 4
   var lastStep = -1;
   function tickBreak(){
     var left = Math.max(0, (bEnd - Date.now())/1000);
-    $("#bTime").textContent = Math.ceil(left);
+    $("#bTime").textContent = bTotal >= 60 && !bSteps ? fmt(left*1000) : Math.ceil(left);
     arc.style.strokeDashoffset = C * (1 - left / bTotal);
     if (bSteps){
       var idx = Math.min(bSteps.length-1, Math.floor((bTotal - left)/20));
@@ -1030,7 +1069,7 @@ footer.foot{max-width:1180px;margin:0 auto;padding-inline:16px;padding-block:0 4
     if (left <= 0){
       clearInterval(bTimer); bTimer = null; chime();
       $("#bStep").textContent = "Well done";
-      $("#bHint").textContent = bKind === "eye" ? "Your eyes had a real rest. Back to it." : "Notice how your body feels now. Take a sip of water.";
+      $("#bHint").textContent = bKind === "eye" ? "Your eyes had a real rest. Back to it." : bKind === "rest" ? "Welcome back. Your break timers have been reset." : "Notice how your body feels now. Take a sip of water.";
       $("#bTime").textContent = "0";
     }
   }
@@ -1039,8 +1078,9 @@ footer.foot{max-width:1180px;margin:0 auto;padding-inline:16px;padding-block:0 4
     $("#overlay").hidden = true;
     if (running){
       var now = Date.now();
-      if (bKind === "eye") nextEye = now + (snooze ? 5 : state.eyeInt)*60000;
-      else { nextMove = now + (snooze ? 5 : state.moveInt)*60000; if (!snooze) nextEye = Math.max(nextEye, now + state.eyeInt*60000); }
+      if (bKind === "eye") nextEye = now + (snooze ? 5 : EYE_MIN)*60000;
+      else if (bKind === "rest"){ if (snooze) nextRest = now + 5*60000; else resetTimers(); }
+      else { nextMove = now + (snooze ? 5 : state.moveInt)*60000; if (!snooze) nextEye = Math.max(nextEye, now + EYE_MIN*60000); }
     }
     paintCoach();
   }
@@ -1052,7 +1092,8 @@ footer.foot{max-width:1180px;margin:0 auto;padding-inline:16px;padding-block:0 4
   setInterval(function(){
     if (running && !inBreak){
       var now = Date.now();
-      if (now >= nextMove) openBreak("move");
+      if (now >= nextRest) openBreak("rest");
+      else if (now >= nextMove) openBreak("move");
       else if (now >= nextEye) openBreak("eye");
     }
     paintCoach();

@@ -24,4 +24,4 @@ Static site, no build step: open `index.html` or deploy the folder to any static
 
 Modules: why it matters (with a self-check), eyes and light (blue light, 20-20-20, green/far focus), body and micro-movement, mental fatigue and breaks, AI as employee not manager (with a delegation exercise), staying sharp by having AI quiz you (copyable prompts), spirit and presence, and a personal plan builder.
 
-The top bar holds a break coach that reminds you to take eye and movement breaks while the page is open. Progress, answers and the plan are saved in the visitor's browser (`localStorage`).
+The top bar holds a break coach that follows the published guidelines while the page is open: a 20-second eye break every 20 minutes and a 15-minute screen break every 2 hours (American Optometric Association), and a movement break every 30 minutes. Sources are listed at the bottom of the page. Progress, answers and the plan are saved in the visitor's browser (`localStorage`).
